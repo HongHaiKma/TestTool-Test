@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: DiceSprite
+  m_EditorClassIdentifier: 
+  m_GroupName: DiceSprite
+  m_Data:
+    m_SerializedData: []
+  m_GUID: cf6196e2512a53d4d953df52c4ee9ff1
+  m_SerializeEntries: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 9f8fb930d1d721d43925bf4ed7ee8b34, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8b45532910c17f74b9b30fbbc5b2ab5a, type: 2}
+    - {fileID: 11400000, guid: 253b8923a8f4c2349a5802921321dce8, type: 2}
