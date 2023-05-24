@@ -17,9 +17,26 @@ public class CloudSaveData : MonoBehaviour
 
     private async UniTask Start() 
     {
-        await UnityServices.InitializeAsync();
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        Debug.Log("Singed in");
+        try
+        {
+            await UnityServices.InitializeAsync();
+            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            Debug.Log($"PlayerID: {AuthenticationService.Instance.PlayerId}");
+        }
+        catch (AuthenticationException ex)
+        {
+            // Compare error code to AuthenticationErrorCodes
+            // Notify the player with the proper error message
+            Debug.LogException(ex);
+        }
+        catch (RequestFailedException ex)
+        {
+            // Compare error code to CommonErrorCodes
+            // Notify the player with the proper error message
+            Debug.LogException(ex);
+        }
+        
+        // Debug.Log("Singed in");
     }
 
     [Button]
@@ -42,10 +59,20 @@ public class CloudSaveData : MonoBehaviour
     {
         Dictionary<string, string> savedData = await CloudSaveService.Instance.Data.LoadAllAsync();
         Debug.Log("HeroSave: " + savedData["HeroSave"]);
-        HeroSave heroSave = new HeroSave();
-        // JsonMapper.ToObject<HeroSave>(m_HeroSaveDataTest.Value);
-        var heroObject = JsonMapper.ToObject<Collection<HeroSave>>(savedData["HeroSave"]);
-        Debug.Log($"Count: {heroObject.Value.Count}");
+        // HeroSave heroSave = new HeroSave();
+        var heroObject = JsonMapper.ToObject<List<HeroSave>>(savedData["HeroSave"]);
+        Debug.Log($"Count: {heroObject.Count}");
+        for (int i = 0; i < heroObject.Count; i++)
+        {
+            Debug.Log($"ID: {heroObject[i].m_Id}");
+            Debug.Log($"Name: {heroObject[i].m_Name}");
+            for (int j = 0; j < heroObject[i].m_Weapons.Count; j++)
+            {
+                Debug.Log($"Name: {heroObject[i].m_Weapons[j].m_Id}");
+                Debug.Log($"Name: {heroObject[i].m_Weapons[j].m_WeaponType}");
+            }
+        }
+        // Debug.Log($"Count: {heroObject.Value.Count}");
         // for (int i = 0; i < heroObject.Value.Count; i++)
         // {
         //     Debug.Log($"ID: {heroObject.Value[i].m_Id}");
