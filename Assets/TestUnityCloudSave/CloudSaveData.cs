@@ -22,6 +22,7 @@ public class CloudSaveData : MonoBehaviour
             await UnityServices.InitializeAsync();
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
             Debug.Log($"PlayerID: {AuthenticationService.Instance.PlayerId}");
+            Debug.Log($"Access Token: {AuthenticationService.Instance.AccessToken}");
         }
         catch (AuthenticationException ex)
         {
@@ -35,8 +36,34 @@ public class CloudSaveData : MonoBehaviour
             // Notify the player with the proper error message
             Debug.LogException(ex);
         }
-        
-        // Debug.Log("Singed in");
+    }
+
+    [Button]
+    async UniTask LinkWithGooglePlayGamesAsync(string authCode)
+    {
+        try
+        {
+            await AuthenticationService.Instance.LinkWithGoogleAsync(authCode);
+            Debug.Log("Link is successful.");
+        }
+        catch (AuthenticationException ex) when (ex.ErrorCode == AuthenticationErrorCodes.AccountAlreadyLinked)
+        {
+            // Prompt the player with an error message.
+            Debug.LogError("This user is already linked with another account. Log in instead.");
+        }
+
+        catch (AuthenticationException ex)
+        {
+            // Compare error code to AuthenticationErrorCodes
+            // Notify the player with the proper error message
+            Debug.LogException(ex);
+        }
+        catch (RequestFailedException ex)
+        {
+            // Compare error code to CommonErrorCodes
+            // Notify the player with the proper error message
+            Debug.LogException(ex);
+        }
     }
 
     [Button]
