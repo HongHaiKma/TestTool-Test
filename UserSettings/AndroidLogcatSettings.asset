@@ -3,45 +3,51 @@
     "m_SelectedPackage": {
         "deviceId": "08211FDD400529",
         "name": "com.TestTool.playgameservices",
-        "processId": 15699,
+        "processId": 19166,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "08211FDD400529",
-            "name": "com.android.vending",
-            "processId": 19508,
+            "name": "com.google.android.apps.nexuslauncher",
+            "processId": 3272,
             "exited": false
         },
         {
             "deviceId": "08211FDD400529",
             "name": "com.TestTool.playgameservices",
-            "processId": 12456,
+            "processId": 11743,
             "exited": true
         },
         {
             "deviceId": "08211FDD400529",
             "name": "com.TestTool.playgameservices",
-            "processId": 14135,
+            "processId": 13158,
             "exited": true
         },
         {
             "deviceId": "08211FDD400529",
             "name": "com.TestTool.playgameservices",
-            "processId": 14674,
+            "processId": 14252,
+            "exited": true
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.google.android.gms.ui",
+            "processId": 29325,
+            "exited": false
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.TestTool.playgameservices",
+            "processId": 15469,
             "exited": true
         },
         {
             "deviceId": "08211FDD400529",
             "name": "com.TestTool.playgameservices",
-            "processId": 15212,
-            "exited": true
-        },
-        {
-            "deviceId": "08211FDD400529",
-            "name": "com.TestTool.playgameservices",
-            "processId": 15699,
+            "processId": 19166,
             "exited": false
         }
     ],
@@ -53,7 +59,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "",
@@ -69,11 +75,11 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "CRASH",
-                "m_Selected": true
+                "m_Selected": false
             }
         ]
     },

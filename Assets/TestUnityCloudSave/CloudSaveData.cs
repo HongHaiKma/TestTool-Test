@@ -12,6 +12,7 @@ using LitJson;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using TMPro;
+using Google;
 
 public class CloudSaveData : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class CloudSaveData : MonoBehaviour
     .RequestServerAuthCode(false /* Don't force refresh */)
     .Build();
 
-    async UniTask Awake()
+    async UniTask Start()
     {
         await UnityServices.InitializeAsync();
         //Initialize PlayGamesPlatform
@@ -92,48 +93,60 @@ public class CloudSaveData : MonoBehaviour
 
     public void LoginGooglePlayGames()
     {
-        PlayGamesPlatform.Instance.Authenticate((success) =>
+        PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (success) =>
         {
-            Social.Active.localUser.Authenticate((bool success) => 
+            if (success == SignInStatus.Success)
             {
-                if (success)
-                {
-                    authCode = PlayGamesPlatform.Instance.GetIdToken();
-                    Debug.Log("AuthCode: " + authCode);
-                    txt_Authen.text = $"Successful";
-                    SignInWithGoogleAsync(authCode);
-                    
-                    // PlayGamesPlatform.Instance.RequestPermission(config, code =>
-                    // {
-                    //     SignInWithGoogleAsync(authCode);
-                    //     txt_Authen.text = $"Successful";
-                    // });
-                }
-                else
-                {
-                    Debug.Log("Login Unsuccessful");
-                }
-            });
-//             if (success == SignInStatus.Success)
-//             {
-//                 Debug.Log("Login with Google Play games successful.");
-
-//                 PlayGamesPlatform.Instance.RequestPermission(true, code =>
-//                 {
-//                     SignInWithGoogleAsync(code);
-//                     // Debug.Log("Authorization code: " + code);
-//                     // Token = code;
-//                     // txt_Authen.text = $"Successful";
-// // This token serves as an example to be used for SignInWithGooglePlayGames
-//                 });
-//             }
-//             else
-//             {
-//                 // Error = "Failed to retrieve Google play games authorization code";
-//                 // Debug.Log("Login Unsuccessful");
-//                 // txt_Authen.text = $"Unsuccessful";
-//             }
+                txt_Authen.text = $"111111111";
+            }
+            else
+            {
+                txt_Authen.text = $"000000000";
+            }
         });
+
+        // PlayGamesPlatform.Instance.Authenticate((success) =>
+        // {
+        //     Social.Active.localUser.Authenticate((bool success) =>
+        //     {
+        //         if (success)
+        //         {
+        //             authCode = PlayGamesPlatform.Instance.GetIdToken();
+        //             Debug.Log("AuthCode: " + authCode);
+        //             txt_Authen.text = $"Successful";
+        //             SignInWithGoogleAsync(authCode);
+
+        //             // PlayGamesPlatform.Instance.RequestPermission(config, code =>
+        //             // {
+        //             //     SignInWithGoogleAsync(authCode);
+        //             //     txt_Authen.text = $"Successful";
+        //             // });
+        //         }
+        //         else
+        //         {
+        //             Debug.Log("Login Unsuccessful");
+        //         }
+        //     });
+        //     //             if (success == SignInStatus.Success)
+        //     //             {
+        //     //                 Debug.Log("Login with Google Play games successful.");
+
+        //     //                 PlayGamesPlatform.Instance.RequestPermission(true, code =>
+        //     //                 {
+        //     //                     SignInWithGoogleAsync(code);
+        //     //                     // Debug.Log("Authorization code: " + code);
+        //     //                     // Token = code;
+        //     //                     // txt_Authen.text = $"Successful";
+        //     // // This token serves as an example to be used for SignInWithGooglePlayGames
+        //     //                 });
+        //     //             }
+        //     //             else
+        //     //             {
+        //     //                 // Error = "Failed to retrieve Google play games authorization code";
+        //     //                 // Debug.Log("Login Unsuccessful");
+        //     //                 // txt_Authen.text = $"Unsuccessful";
+        //     //             }
+        // });
     }
 
     async UniTask SignInWithGoogleAsync(string _authCode)
