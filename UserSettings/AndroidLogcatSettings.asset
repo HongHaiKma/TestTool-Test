@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "08211FDD400529",
         "name": "com.TestTool.playgameservices",
-        "processId": 19166,
+        "processId": 30024,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -16,24 +16,6 @@
         },
         {
             "deviceId": "08211FDD400529",
-            "name": "com.TestTool.playgameservices",
-            "processId": 11743,
-            "exited": true
-        },
-        {
-            "deviceId": "08211FDD400529",
-            "name": "com.TestTool.playgameservices",
-            "processId": 13158,
-            "exited": true
-        },
-        {
-            "deviceId": "08211FDD400529",
-            "name": "com.TestTool.playgameservices",
-            "processId": 14252,
-            "exited": true
-        },
-        {
-            "deviceId": "08211FDD400529",
             "name": "com.google.android.gms.ui",
             "processId": 29325,
             "exited": false
@@ -41,13 +23,31 @@
         {
             "deviceId": "08211FDD400529",
             "name": "com.TestTool.playgameservices",
-            "processId": 15469,
+            "processId": 10861,
             "exited": true
         },
         {
             "deviceId": "08211FDD400529",
             "name": "com.TestTool.playgameservices",
-            "processId": 19166,
+            "processId": 12293,
+            "exited": true
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.TestTool.playgameservices",
+            "processId": 28356,
+            "exited": true
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.TestTool.playgameservices",
+            "processId": 29763,
+            "exited": true
+        },
+        {
+            "deviceId": "08211FDD400529",
+            "name": "com.TestTool.playgameservices",
+            "processId": 30024,
             "exited": false
         }
     ],
@@ -59,7 +59,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "",
@@ -75,11 +75,11 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "CRASH",
-                "m_Selected": false
+                "m_Selected": true
             }
         ]
     },
@@ -102,7 +102,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "",
+        "m_Filter": "PlayerID",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },
