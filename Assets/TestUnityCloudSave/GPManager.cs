@@ -110,6 +110,7 @@ public class GPManager : MonoBehaviour
     }
 
     public TextAsset json1;
+
     void ApplyRemoteSettings(ConfigResponse configResponse)
     {
         Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
@@ -119,6 +120,7 @@ public class GPManager : MonoBehaviour
 
     public void GetRemoteHeroSave()
     {
+        RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
         Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
         TestJsonHeroSave(RemoteConfigService.Instance.appConfig.config.ToString());
     }
@@ -148,7 +150,7 @@ public class GPManager : MonoBehaviour
         // WeaponData wd = JsonConvert.DeserializeObject<WeaponData>(serialized);
         // var heroObject = JsonConvert.DeserializeObject<List<HeroSave>>(json1.ToString());
         var heroObject = JsonMapper.ToObject<List<HeroSave>>(json1.ToString());
-        m_HeroSaveData.SetValue(heroObject);
+        m_HeroSaveData.Value[1].m_Weapons[0].m_WeaponType = heroObject[1].m_Weapons[0].m_WeaponType;
     }
 
 
