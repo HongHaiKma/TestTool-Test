@@ -13,6 +13,8 @@ using Unity.Services.CloudSave;
 using System.Collections.Generic;
 using LitJson;
 using UnityEngine.UI;
+using Unity.Services.RemoteConfig;
+using Newtonsoft.Json;
 
 public class GPManager : MonoBehaviour
 {
@@ -23,6 +25,7 @@ public class GPManager : MonoBehaviour
 
     public Button btn_Save;
     public Button btn_Load;
+    public Button btn_HeroSaveRemote;
 
 
     public string Token;
@@ -37,6 +40,7 @@ public class GPManager : MonoBehaviour
     {
         btn_Save.onClick.AddListener(() => SavePlayerData());
         btn_Load.onClick.AddListener(() => ReadPlayerData());
+        btn_HeroSaveRemote.onClick.AddListener(() => GetRemoteHeroSave());
         await UnityServices.InitializeAsync();
         Debug.Log("Unity Gaming Service Init");
         await LoginGooglePlayGames();
@@ -79,6 +83,8 @@ public class GPManager : MonoBehaviour
             await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(authCode);
             Debug.Log($"PlayerID: {AuthenticationService.Instance.PlayerId}"); //Display the Unity Authentication PlayerID
             Debug.Log("SignIn is successful.");
+
+            GetRemoteConfig();
         }
         catch (AuthenticationException ex)
         {
@@ -93,6 +99,49 @@ public class GPManager : MonoBehaviour
             Debug.LogException(ex);
         }
     }
+
+    public struct userAttributes { }
+    public struct appAttributes { }
+
+    void GetRemoteConfig()
+    {
+        RemoteConfigService.Instance.FetchCompleted += ApplyRemoteSettings;
+        RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
+    }
+
+    public TextAsset json1;
+    void ApplyRemoteSettings(ConfigResponse configResponse)
+    {
+        Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
+
+        // var heroObject = JsonMapper.ToS<List<HeroSave>>(savedData["HeroSave"]);
+    }
+
+    public void GetRemoteHeroSave()
+    {
+        Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
+        TestJsonHeroSave(RemoteConfigService.Instance.appConfig.config.ToString());
+    }
+
+    [Button]
+    public void TestJsonHeroSave(string _json)
+    {
+        // WeaponData wd = JsonConvert.DeserializeObject<WeaponData>(serialized);
+        // var heroObject = JsonConvert.DeserializeObject<List<HeroSave>>(json1.ToString());
+        var heroObject = JsonMapper.ToObject<List<HeroSave>>(_json.ToString());
+        Debug.Log($"Count: {heroObject.Count}");
+        for (int i = 0; i < heroObject.Count; i++)
+        {
+            Debug.Log($"ID: {heroObject[i].m_Id}");
+            Debug.Log($"Name: {heroObject[i].m_Name}");
+            for (int j = 0; j < heroObject[i].m_Weapons.Count; j++)
+            {
+                Debug.Log($"Name: {heroObject[i].m_Weapons[j].m_Id}");
+                Debug.Log($"Name: {heroObject[i].m_Weapons[j].m_WeaponType}");
+            }
+        }
+    }
+
 
     [Button]
     public void TestHero()
@@ -139,12 +188,5 @@ public class GPManager : MonoBehaviour
                 Debug.Log($"Name: {heroObject[i].m_Weapons[j].m_WeaponType}");
             }
         }
-        // Debug.Log($"Count: {heroObject.Value.Count}");
-        // for (int i = 0; i < heroObject.Value.Count; i++)
-        // {
-        //     Debug.Log($"ID: {heroObject.Value[i].m_Id}");
-        //     Debug.Log($"Name: {heroObject.Value[i].m_Name}");
-        // }
-        // m_HeroSaveDataTest.Value = heroObject.Value;
     }
 }
