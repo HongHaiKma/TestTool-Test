@@ -17,6 +17,11 @@ namespace ScriptableObjectArchitecture
         {
             return Value.Find(x => x.m_Id == _id);
         }
+
+        public void SetValue(List<HeroSave> _value)
+        {
+            Value = _value;
+        }
     }
 
     [System.Serializable]

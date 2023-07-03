@@ -142,6 +142,15 @@ public class GPManager : MonoBehaviour
         }
     }
 
+    [Button]
+    public void SetHeroSaveValue()
+    {
+        // WeaponData wd = JsonConvert.DeserializeObject<WeaponData>(serialized);
+        // var heroObject = JsonConvert.DeserializeObject<List<HeroSave>>(json1.ToString());
+        var heroObject = JsonMapper.ToObject<List<HeroSave>>(json1.ToString());
+        m_HeroSaveData.SetValue(heroObject);
+    }
+
 
     [Button]
     public void TestHero()

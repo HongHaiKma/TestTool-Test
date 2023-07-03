@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
   m_Name: RemoteConfigDataStoreAsset
   m_EditorClassIdentifier: 
-  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"f2fb1e20-9935-4dcd-bc69-4ce1870991fc\"\r\n   
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"b5412ce5-9617-440f-9d33-d5a14e6d3a0f\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"HeroSave\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": null,\r\n      \"value\": [\r\n        {\r\n          \"m_Id\":
     0,\r\n          \"m_Name\": \"Phantom\",\r\n          \"m_Weapons\": [\r\n           
@@ -31,7 +31,7 @@ MonoBehaviour:
     \"m_Id\": 2,\r\n              \"m_WeaponType\": 2\r\n            },\r\n           
     {\r\n              \"m_Id\": 3,\r\n              \"m_WeaponType\": 3\r\n           
     }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  }\r\n]"
-  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"f2fb1e20-9935-4dcd-bc69-4ce1870991fc\"\r\n   
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"b5412ce5-9617-440f-9d33-d5a14e6d3a0f\"\r\n   
     },\r\n    \"rs\": {\r\n      \"key\": \"HeroSave\",\r\n      \"type\": \"json\",\r\n     
     \"schemaId\": null,\r\n      \"value\": [\r\n        {\r\n          \"m_Id\":
     0,\r\n          \"m_Name\": \"Phantom\",\r\n          \"m_Weapons\": [\r\n           
