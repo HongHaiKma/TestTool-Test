@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Remote
   m_Data:
     m_SerializedData: []
-  m_GUID: 5e8620a1db9618844b941ec75e67bc74
+  m_GUID: c896fd0a9b6a0f446a47150e3768cac9
   m_SerializeEntries:
   - m_GUID: fd855cdf156aa3948990c3c3109bdc84
     m_Address: darts ninja_1
@@ -25,5 +25,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 9f8fb930d1d721d43925bf4ed7ee8b34, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 4ce1d8439f80e964d8e56ec26c09cfe5, type: 2}
-    - {fileID: 11400000, guid: d4023fe8dd63cf343ae440c3c260f586, type: 2}
+    - {fileID: 11400000, guid: 5c39e99dab8e39a448296bf40eab22ce, type: 2}
+    - {fileID: 11400000, guid: 5e38f637f9b6bb94d81385dabf467c04, type: 2}

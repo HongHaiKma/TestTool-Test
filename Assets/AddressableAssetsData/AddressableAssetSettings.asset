@@ -44,7 +44,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 81bb4d66f653ed344ae7e4602f256e86, type: 2}
   - {fileID: 11400000, guid: 365a882383905a142bf06d621a8ac425, type: 2}
   - {fileID: 11400000, guid: 46f775b53fa651048a1ba5a0131009f9, type: 2}
-  - {fileID: 11400000, guid: 6d23c100950f32d47aea1218f0a075c0, type: 2}
+  - {fileID: 11400000, guid: 32f137bfb2daef34cbec46c1b0410d9b, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -65,7 +65,7 @@ MonoBehaviour:
       - m_Id: 3f8b3622e128145468af42a4a0f63512
         m_Value: ServerData/[BuildTarget]
       - m_Id: 680d5944f394a2d4281cf29b3cf1dd67
-        m_Value: https://29e56eab-b9fe-4e9f-94d8-ad6b97a60e61.client-api.unity3dusercontent.com/client_api/v1/environments/testtool/buckets/d08f8f6a-3d8a-4503-bfd2-4083f9458cbc/releases/dbbefacb-12bc-44a5-a730-26dfce5e42a7/entry_by_path/content/?path=
+        m_Value: https://29e56eab-b9fe-4e9f-94d8-ad6b97a60e61.client-api.unity3dusercontent.com/client_api/v1/environments/production/buckets/e9a98b7f-15ab-4955-aeb1-700c7e11b608/release_by_badge/latest/entry_by_path/content/?path=
     - m_InheritedParent: 
       m_Id: ffc64822d59911045a9ced7b9f593796
       m_ProfileName: DEV
